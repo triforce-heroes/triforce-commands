@@ -47,4 +47,18 @@ describe("driver ZTFH", () => {
   it.each(tests)("test %j", (input, output) => {
     expect(ZTFH.parse(input)).toStrictEqual(new Entries(output));
   });
+
+  it("test toCompressed() and fromCompressed()", () => {
+    const entrySource =
+      "Hero.\n- \u000E\u0000\u0003\u0002\u0000Hero\u000E\u0000\u0003\u0002￿.";
+    const entries = ZTFH.parse(entrySource);
+
+    const entriesCompressed = entries.toCompressed();
+    const entriesText = entriesCompressed.toText();
+
+    expect(entriesText).toBe("Hero.<1>-<2>Hero<3>.");
+    expect(entriesCompressed.fromCompressed(entriesText, entries)).toBe(
+      entrySource,
+    );
+  });
 });

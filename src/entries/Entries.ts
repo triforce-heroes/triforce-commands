@@ -12,8 +12,9 @@ interface Command {
 
 const COMMAND_REGEXP = /\s*<\s*(\d+)\s*>\s*/g;
 
-const OPTIMIZER_REGEXP =
-  /(\n+|\s{2,}|\p{So}|\s*(?:<\d+>){2,}\s*|\s+<\d+>\s*|\s*<\d+>\s+|^\s+|\s+$)/u;
+const COMMAND_STRICT_REGEXP = /<(\d+)>/g;
+
+const OPTIMIZER_REGEXP = /(\n+|\s{2,}|\p{So}|\s*(?:<\d+>)+\s*|^\s+|\s+$)/u;
 
 const OPTIMIZER_SLIM_REGEXP = /(\p{So}|(?:<\d+>){2,}$)/u;
 
@@ -58,7 +59,7 @@ export class Entries {
     return result;
   }
 
-  public toTranslation(slim = false) {
+  public toCompressed(slim = false) {
     const commands = new Map<string, Command>();
     const entries: Entry[] = [];
     const splits = this.toText().split(
@@ -92,7 +93,7 @@ export class Entries {
   public toIndex() {
     const commands = new Map<string, Command>();
 
-    return new Entries([new EntryText(this.toTranslation(true).toText())])
+    return new Entries([new EntryText(this.toCompressed(true).toText())])
       .toText()
       .replaceAll(MULTIPLE_COMMANDS_REGEXP, (match) => {
         if (!commands.has(match)) {
@@ -113,25 +114,38 @@ export class Entries {
     return this.entries.map((entry) => entry.toString()).join("");
   }
 
-  public fromTranslation(translation: string) {
-    const commands = this.getCommandIndexes();
-
-    return translation.replaceAll(COMMAND_REGEXP, (_, index) => {
-      const command = commands.get(Number(index));
-
-      return command === undefined ? `<${index}>` : command.contents;
-    });
-  }
-
-  private getCommandIndexes() {
-    const commands = new Map<number, EntryCompressed>();
+  public fromCompressed(compressed: string, entries?: Entries) {
+    const compressedCommands = new Map<number, EntryCompressed>();
 
     for (const entry of this.entries) {
       if (entry instanceof EntryCompressed) {
-        commands.set(entry.index, entry);
+        compressedCommands.set(entry.index, entry);
       }
     }
 
-    return commands;
+    const decompressed = compressed.replaceAll(COMMAND_REGEXP, (_, index) => {
+      const command = compressedCommands.get(Number(index));
+
+      return command === undefined ? `<${index}>` : command.contents;
+    });
+
+    if (entries === undefined) {
+      return decompressed;
+    }
+
+    const entriesCommands = new Set<string>();
+
+    for (const entry of entries.entries) {
+      if (entry instanceof EntryCommand) {
+        entriesCommands.add(entry.command);
+      }
+    }
+
+    const entriesCommandsValues = [...entriesCommands.values()];
+
+    return decompressed.replaceAll(
+      COMMAND_STRICT_REGEXP,
+      (_, index) => entriesCommandsValues[index - 1] ?? `<${index}>`,
+    );
   }
 }

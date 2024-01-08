@@ -18,7 +18,7 @@ describe("class Entries", () => {
     new EntryText("\n! "),
   ]);
 
-  const sampleTranslation = sampleEntries.toTranslation();
+  const sampleCompressed = sampleEntries.toCompressed();
 
   it("method toText()", () => {
     expect(sampleEntries.toText()).toBe(" Hello <1><2><2><2><3><4><5>\n! ");
@@ -28,8 +28,8 @@ describe("class Entries", () => {
     expect(sampleEntries.toRaw()).toBe(" Hello Wooorld\n! ");
   });
 
-  it("method toTranslation()", () => {
-    expect(sampleTranslation).toStrictEqual(
+  it("method toCompressed()", () => {
+    expect(sampleCompressed).toStrictEqual(
       new Entries([
         new EntryCompressed(1, " "),
         new EntryText("Hello"),
@@ -39,21 +39,30 @@ describe("class Entries", () => {
       ]),
     );
 
-    expect(sampleTranslation.entries[2]!).toHaveLength(23);
-    expect(sampleTranslation.toText()).toBe("<1>Hello<2>!<1>");
+    expect(sampleCompressed.entries[2]!).toHaveLength(23);
+    expect(sampleCompressed.toText()).toBe("<1>Hello<2>!<1>");
   });
 
-  it("method toIndex()", () => {
-    expect(sampleEntries.toIndex()).toBe("Hello <1> !");
-    expect(sampleTranslation.toIndex()).toBe("<1>Hello<2>!<1>");
+  const toIndexSamples = [
+    [sampleEntries, "Hello <1> !"],
+    [sampleCompressed, "<1>Hello<2>!<1>"],
+    [new Entries([new EntryText(" ")]), ""],
+  ] as const;
 
-    expect(new Entries([new EntryText(" ")]).toIndex()).toBe("");
+  it.each(toIndexSamples)("method toIndex(%j)", (entries, output) => {
+    expect(entries.toIndex()).toBe(output);
   });
 
-  it("method fromTranslation()", () => {
-    expect(
-      sampleTranslation.fromTranslation("< 0 >< 1 > Olá <2>\n!\n<1><3>"),
-    ).toBe("<0> Olá <1><2><2><2><3><4><5>\n! <3>");
-    expect(sampleTranslation.toRaw()).toBe(" Hello <1><2><2><2><3><4><5>\n! ");
+  it("method fromCompressed()", () => {
+    const sample = "< 0 >< 1 > Olá <2>\n!\n<1><6>";
+
+    expect(sampleCompressed.fromCompressed(sample)).toBe(
+      "<0> Olá <1><2><2><2><3><4><5>\n! <6>",
+    );
+    expect(sampleCompressed.fromCompressed(sample, sampleEntries)).toBe(
+      "<0> Olá Wooorld\n! <6>",
+    );
+
+    expect(sampleCompressed.toRaw()).toBe(" Hello <1><2><2><2><3><4><5>\n! ");
   });
 });
