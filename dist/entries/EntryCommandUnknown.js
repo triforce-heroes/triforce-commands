@@ -1,0 +1,1 @@
+import{EntryCommand as n}from"./EntryCommand.js";export class EntryCommandUnknown extends n{}

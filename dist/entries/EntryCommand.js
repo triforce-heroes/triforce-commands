@@ -1,0 +1,1 @@
+import{Entry as t}from"./Entry.js";export class EntryCommand extends t{constructor(t){super(),this.command=t}get length(){return this.command.length}toString(){return this.command}}

@@ -1,0 +1,1 @@
+import{Rule as e}from"./Rule.js";export class RuleLiteral extends e{constructor(e,s=0){super(),this.literal=e,this.consume=s}}

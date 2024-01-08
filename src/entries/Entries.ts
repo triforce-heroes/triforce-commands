@@ -1,0 +1,137 @@
+import assert from "node:assert";
+
+import { Entry } from "./Entry.js";
+import { EntryCommand } from "./EntryCommand.js";
+import { EntryCompressed } from "./EntryCompressed.js";
+import { EntryText } from "./EntryText.js";
+
+interface Command {
+  index: number;
+  entry: Entry;
+}
+
+const COMMAND_REGEXP = /\s*<\s*(\d+)\s*>\s*/g;
+
+const OPTIMIZER_REGEXP =
+  /(\n+|\s{2,}|\p{So}|\s*(?:<\d+>){2,}\s*|\s+<\d+>\s*|\s*<\d+>\s+|^\s+|\s+$)/u;
+
+const OPTIMIZER_SLIM_REGEXP = /(\p{So}|(?:<\d+>){2,}$)/u;
+
+const MULTIPLE_COMMANDS_REGEXP = /(?:<\s*\d+\s*>)+/g;
+
+const MULTIPLE_SPACES_REGEXP = /\s+/g;
+
+const NON_INDEXABLE_REGEXP = /[^\p{L}\p{N}\p{Pc}\p{Po}\p{Pd}\s<>]+/gu;
+
+export class Entries {
+  public constructor(public readonly entries: Entry[]) {}
+
+  public toText() {
+    const commands = new Map<string, Command>();
+    let result = "";
+
+    for (const entry of this.entries) {
+      if (entry instanceof EntryText) {
+        result += entry.text;
+
+        continue;
+      }
+
+      if (entry instanceof EntryCompressed) {
+        result += `<${entry.index}>`;
+
+        continue;
+      }
+
+      assert(entry instanceof EntryCommand);
+
+      if (!commands.has(entry.command)) {
+        commands.set(entry.command, {
+          index: commands.size + 1,
+          entry,
+        });
+      }
+
+      result += `<${commands.get(entry.command)!.index}>`;
+    }
+
+    return result;
+  }
+
+  public toTranslation(slim = false) {
+    const commands = new Map<string, Command>();
+    const entries: Entry[] = [];
+    const splits = this.toText().split(
+      slim ? OPTIMIZER_SLIM_REGEXP : OPTIMIZER_REGEXP,
+    );
+
+    for (let i = 0; i < splits.length; i += 2) {
+      const text = splits[i]!;
+
+      if (text !== "") {
+        entries.push(new EntryText(text));
+      }
+
+      const command = splits[i + 1];
+
+      if (command !== undefined) {
+        if (!commands.has(command)) {
+          commands.set(command, {
+            index: commands.size + 1,
+            entry: new EntryCompressed(commands.size + 1, command),
+          });
+        }
+
+        entries.push(commands.get(command)!.entry);
+      }
+    }
+
+    return new Entries(entries);
+  }
+
+  public toIndex() {
+    const commands = new Map<string, Command>();
+
+    return new Entries([new EntryText(this.toTranslation(true).toText())])
+      .toText()
+      .replaceAll(MULTIPLE_COMMANDS_REGEXP, (match) => {
+        if (!commands.has(match)) {
+          commands.set(match, {
+            index: commands.size + 1,
+            entry: new EntryCompressed(commands.size + 1, match),
+          });
+        }
+
+        return `<${commands.get(match)!.index}>`;
+      })
+      .replaceAll(NON_INDEXABLE_REGEXP, " ")
+      .replaceAll(MULTIPLE_SPACES_REGEXP, " ")
+      .trim();
+  }
+
+  public toRaw() {
+    return this.entries.map((entry) => entry.toString()).join("");
+  }
+
+  public fromTranslation(translation: string) {
+    const commands = this.getCommandIndexes();
+
+    return translation.replaceAll(COMMAND_REGEXP, (_, index) => {
+      const command = commands.get(Number(index));
+
+      return command === undefined ? `<${index}>` : command.contents;
+    });
+  }
+
+  private getCommandIndexes() {
+    const commands = new Map<number, EntryCompressed>();
+
+    for (const entry of this.entries) {
+      if (entry instanceof EntryCompressed) {
+        commands.set(entry.index, entry);
+      }
+    }
+
+    return commands;
+  }
+}

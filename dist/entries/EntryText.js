@@ -1,0 +1,1 @@
+import{Entry as t}from"./Entry.js";export class EntryText extends t{constructor(t){super(),this.text=t}get length(){return this.text.length}toString(){return this.text}}

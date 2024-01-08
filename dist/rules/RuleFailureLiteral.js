@@ -1,0 +1,1 @@
+import{Rule as e}from"./Rule.js";export class RuleFailureLiteral extends e{constructor(e){super(),this.condition=e}}

@@ -1,0 +1,1 @@
+import{Rule as s}from"./Rule.js";export class RuleFailureExpression extends s{constructor(s){super(),this.expression=RegExp(s,`${s.flags}sy`)}}
