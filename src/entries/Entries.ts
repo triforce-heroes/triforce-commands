@@ -1,5 +1,3 @@
-import assert from "node:assert";
-
 import { Entry } from "./Entry.js";
 import { EntryCommand } from "./EntryCommand.js";
 import { EntryCompressed } from "./EntryCompressed.js";
@@ -44,7 +42,9 @@ export class Entries {
         continue;
       }
 
-      assert(entry instanceof EntryCommand);
+      if (!(entry instanceof EntryCommand)) {
+        continue;
+      }
 
       if (!commands.has(entry.command)) {
         commands.set(entry.command, {

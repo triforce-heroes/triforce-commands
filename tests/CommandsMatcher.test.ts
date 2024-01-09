@@ -80,6 +80,22 @@ describe("class CommandsMatcher", () => {
     );
   });
 
+  it("method addExpression() with consumer", () => {
+    const matcher = new CommandsMatcher();
+
+    matcher.addExpression(/B(.)/, (matches) => matches[1]!.codePointAt(0)!);
+
+    expect(matcher.match("AB\u0000B\u0001CB\u0002CDE")).toStrictEqual(
+      new Entries([
+        new EntryText("A"),
+        new EntryCommand("B\u0000"),
+        new EntryCommand("B\u0001C"),
+        new EntryCommand("B\u0002CD"),
+        new EntryText("E"),
+      ]),
+    );
+  });
+
   it("method addFailureLiteral()", () => {
     const matcher = new CommandsMatcher();
 

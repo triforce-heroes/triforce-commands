@@ -1,9 +1,10 @@
-import { TPHD } from "./drivers/TPHD.js";
-import { ZTFH } from "./drivers/ZTFH.js";
+export { Entries } from "./entries/Entries.js";
+export { EntryCommand } from "./entries/EntryCommand.js";
+export { EntryCommandUnknown } from "./entries/EntryCommandUnknown.js";
+export { EntryDefinition } from "./entries/EntryDefinition.js";
+export { EntryText } from "./entries/EntryText.js";
 
-export type * from "./Driver.js";
+export type { Driver } from "./Driver.js";
 
-export const CommandsDrivers = {
-  TPHD,
-  ZTFH,
-};
+export { TPHD as TPHDDriver } from "./drivers/TPHD.js";
+export { ZTFH as ZTFHDriver } from "./drivers/ZTFH.js";

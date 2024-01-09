@@ -67,9 +67,16 @@ export class CommandsMatcher {
           const match = rule.expression.exec(input);
 
           if (match) {
+            const consumerLength = rule.consumeCallback
+              ? rule.consumeCallback(match)
+              : 0;
+
             builder.push(
               new EntryCommand(
-                input.slice(builder.offset, builder.offset + match[0].length),
+                input.slice(
+                  builder.offset,
+                  builder.offset + match[0].length + consumerLength,
+                ),
               ),
             );
 

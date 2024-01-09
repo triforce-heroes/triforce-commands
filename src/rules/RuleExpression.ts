@@ -1,11 +1,17 @@
 import { Rule } from "./Rule.js";
 
 export class RuleExpression extends Rule {
-  public readonly expression: RegExp;
+  public readonly expression;
 
-  public constructor(expression: RegExp) {
+  public readonly consumeCallback;
+
+  public constructor(
+    expression: RegExp,
+    consumeCallback?: (matches: RegExpExecArray) => number,
+  ) {
     super();
 
     this.expression = new RegExp(expression, `${expression.flags}sy`);
+    this.consumeCallback = consumeCallback;
   }
 }

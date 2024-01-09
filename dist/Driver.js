@@ -1,1 +1,1 @@
-export class Driver{constructor(r,s){this.name=r,this.parse=s}}
+import{EntryDefinition as e}from"./entries/EntryDefinition.js";export class Driver{constructor(e,r,i){this.name=e,this.parse=r,this.definer=i}define(r){return this.definer?.(r.command)??new e(r.command)}}

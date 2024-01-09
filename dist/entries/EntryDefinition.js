@@ -1,0 +1,1 @@
+export class EntryDefinition{constructor(t,i){this.raw=t,this.attributes=i}}

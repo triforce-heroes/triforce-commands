@@ -1,1 +1,1 @@
-import{Rule as s}from"./Rule.js";export class RuleExpression extends s{constructor(s){super(),this.expression=RegExp(s,`${s.flags}sy`)}}
+import{Rule as s}from"./Rule.js";export class RuleExpression extends s{constructor(s,e){super(),this.expression=RegExp(s,`${s.flags}sy`),this.consumeCallback=e}}
