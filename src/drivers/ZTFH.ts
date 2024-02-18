@@ -3,7 +3,7 @@ import { BufferConsumer } from "@triforce-heroes/triforce-core/BufferConsumer";
 
 import { CommandsMatcher } from "../CommandsMatcher.js";
 import { Driver } from "../Driver.js";
-import { EntryDefinition } from "../entries/EntryDefinition.js";
+import { EntryCommandDefined } from "../entries/EntryCommandDefined.js";
 
 const buttonExpression = /[\uE000-\uEFFF]/;
 const advanceExpression = /[\u000E\uE000-\uEFFF]/u;
@@ -30,7 +30,7 @@ export const ZTFH = new Driver(
   (input) => matcher.match(input),
   (input) => {
     if (input.length === 1) {
-      return new EntryDefinition(input, {
+      return new EntryCommandDefined(input, {
         type: "button",
         subtype: input,
       });
@@ -42,7 +42,7 @@ export const ZTFH = new Driver(
     const subtype = consumer.readUnsignedInt8();
     const attributes = consumer.readLengthPrefixedString(1);
 
-    return new EntryDefinition(input, {
+    return new EntryCommandDefined(input, {
       type,
       subtype,
       attributes,

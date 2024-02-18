@@ -4,7 +4,7 @@ import { ZTFH } from "../../src/drivers/ZTFH.js";
 import { Entries } from "../../src/entries/Entries.js";
 import { Entry } from "../../src/entries/Entry.js";
 import { EntryCommand } from "../../src/entries/EntryCommand.js";
-import { EntryDefinition } from "../../src/entries/EntryDefinition.js";
+import { EntryCommandDefined } from "../../src/entries/EntryCommandDefined.js";
 import { EntryText } from "../../src/entries/EntryText.js";
 
 describe("driver ZTFH", () => {
@@ -35,17 +35,32 @@ describe("driver ZTFH", () => {
         new EntryCommand("\uE090"),
       ],
     ],
+    [
+      "\u000E\u0002\u0002\n\b2023     \u000E\u0002\u0003\f\n00:00",
+      [
+        new EntryCommand("\u000E\u0002\u0002\n\b2023"),
+        new EntryText("     "),
+        new EntryCommand("\u000E\u0002\u0003\f\n00:00"),
+      ],
+    ],
+    [
+      "\u000E\u0002\u0002\u0002\n\nBreak Before",
+      [
+        new EntryCommand("\u000E\u0002\u0002\u0002\n"),
+        new EntryText("\nBreak Before"),
+      ],
+    ],
     ["\u000E\u0001\0\0", [new EntryCommand("\u000E\u0001\0\0")]],
   ];
 
   it.each(tests)("test %j", (input, output) => {
-    expect(ZTFH.parse(input)).toStrictEqual(new Entries(output));
+    expect(ZTFH.parseRaw(input)).toStrictEqual(new Entries(output));
   });
 
   it("test toCompressed() and fromCompressed()", () => {
     const entrySource =
       "Hero.\n- \u000E\0\0\u0002+Hero\u000E\u0000\u0000\u0004++.";
-    const entries = ZTFH.parse(entrySource);
+    const entries = ZTFH.parseRaw(entrySource);
 
     const entriesCompressed = entries.toCompressed();
     const entriesText = entriesCompressed.toText();
@@ -71,7 +86,7 @@ describe("driver ZTFH", () => {
     "test define(%j)",
     (input, type, subtype, attributes?) => {
       expect(ZTFH.define(new EntryCommand(input))).toStrictEqual(
-        new EntryDefinition(input, {
+        new EntryCommandDefined(input, {
           type,
           subtype,
           ...(attributes !== undefined && { attributes }),

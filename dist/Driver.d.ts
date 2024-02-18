@@ -1,10 +1,11 @@
 import { Entries } from "./entries/Entries.js";
 import { EntryCommand } from "./entries/EntryCommand.js";
-import { EntryDefinition } from "./entries/EntryDefinition.js";
+import { EntryCommandDefined } from "./entries/EntryCommandDefined.js";
 export declare class Driver {
     readonly name: string;
-    readonly parse: (input: string) => Entries;
-    readonly definer?: ((input: string) => EntryDefinition) | undefined;
-    constructor(name: string, parse: (input: string) => Entries, definer?: ((input: string) => EntryDefinition) | undefined);
-    define(entry: EntryCommand): EntryDefinition;
+    readonly parseRaw: (input: string) => Entries;
+    readonly definer?: ((input: string) => EntryCommandDefined) | undefined;
+    constructor(name: string, parseRaw: (input: string) => Entries, definer?: ((input: string) => EntryCommandDefined) | undefined);
+    define(entry: EntryCommand): EntryCommandDefined;
+    parse(input: string): Entries;
 }

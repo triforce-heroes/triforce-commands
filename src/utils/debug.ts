@@ -15,7 +15,7 @@ export function debugEntries(
   const results = new Set<string>();
 
   for (const entry of entries) {
-    for (const command of driver.parse(entry).entries) {
+    for (const command of driver.parseRaw(entry).entries) {
       const isCommand = mode === "Command" && command instanceof EntryCommand;
       const isCommandUnknown =
         mode === "CommandUnknown" && command instanceof EntryCommandUnknown;

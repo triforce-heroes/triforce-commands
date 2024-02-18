@@ -1,0 +1,1 @@
+import{EntryCommand as t}from"./EntryCommand.js";export class EntryCommandDefined extends t{constructor(t,r){super(t),this.attributes=r}}
