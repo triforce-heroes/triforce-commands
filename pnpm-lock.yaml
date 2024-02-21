@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@triforce-heroes/triforce-core':
     specifier: github:triforce-heroes/triforce-core
-    version: github.com/triforce-heroes/triforce-core/120410fa46e48b6949ae5dc22a28a59ad031a544(@aws-sdk/client-dynamodb@3.515.0)(@aws-sdk/client-s3@3.515.0)(@aws-sdk/credential-providers@3.515.0)(@aws-sdk/util-dynamodb@3.515.0)(commander@12.0.0)
+    version: github.com/triforce-heroes/triforce-core/120410fa46e48b6949ae5dc22a28a59ad031a544(@aws-sdk/client-dynamodb@3.518.0)(@aws-sdk/client-s3@3.515.0)(@aws-sdk/credential-providers@3.515.0)(@aws-sdk/util-dynamodb@3.518.0)(commander@12.0.0)
   glob:
     specifier: ^10.3.10
     version: 10.3.10
@@ -15,7 +15,7 @@ dependencies:
 devDependencies:
   '@rheactor/eslint-config-rheactor':
     specifier: github:rheactor/eslint-config-rheactor
-    version: github.com/rheactor/eslint-config-rheactor/2685f6200ff71eda0716f7bdd23cfbf75a6865e4(tailwindcss@3.4.1)(typescript@5.3.3)(vitest@1.3.0)
+    version: github.com/rheactor/eslint-config-rheactor/2685f6200ff71eda0716f7bdd23cfbf75a6865e4(tailwindcss@3.4.1)(typescript@5.3.3)(vitest@1.3.1)
   '@swc/cli':
     specifier: ^0.3.9
     version: 0.3.9(@swc/core@1.4.2)
@@ -26,8 +26,8 @@ devDependencies:
     specifier: ^20.11.19
     version: 20.11.19
   '@vitest/coverage-v8':
-    specifier: ^1.3.0
-    version: 1.3.0(vitest@1.3.0)
+    specifier: ^1.3.1
+    version: 1.3.1(vitest@1.3.1)
   commander:
     specifier: ^12.0.0
     version: 12.0.0
@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^5.3.3
     version: 5.3.3
   vitest:
-    specifier: ^1.3.0
-    version: 1.3.0(@types/node@20.11.19)
+    specifier: ^1.3.1
+    version: 1.3.1(@types/node@20.11.19)
 
 packages:
 
@@ -181,8 +181,8 @@ packages:
       - aws-crt
     dev: false
 
-  /@aws-sdk/client-dynamodb@3.515.0:
-    resolution: {integrity: sha512-0vReYeAlo6zXy+V+Utlj71WcBaL7Qro8yEmb/Hmgej5i2nTMWNwKrLW5/3MhtwHCWrxG0GP3xyw2sOaLdSfdjw==}
+  /@aws-sdk/client-dynamodb@3.518.0:
+    resolution: {integrity: sha512-0ltO7vdMJ3wmZj4DLJ5aHgvnjmzGYl7qNZ+gabihlt9QFqhBU+di4u0tKfcJTRirQ5lEoy11D9Dg8hAHUQhm/g==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
@@ -796,13 +796,13 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@aws-sdk/util-dynamodb@3.515.0(@aws-sdk/client-dynamodb@3.515.0):
-    resolution: {integrity: sha512-HCduLubTlkoxqggF7/Lx26ns+C+idXoXbI3F3y0+sIuBPUi3pDrIAjew8LkL7lmvM4D4frDuCdFOABPTOO6Eug==}
+  /@aws-sdk/util-dynamodb@3.518.0(@aws-sdk/client-dynamodb@3.518.0):
+    resolution: {integrity: sha512-XW2l7vcGlHMXRT2b8yTeqtN9p/PZ2sA0RSNEKRb/kE/81pmE2EhgVpx3WJOYh3nedmWP8p4W6z00rhom12p5lg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@aws-sdk/client-dynamodb': ^3.0.0
     dependencies:
-      '@aws-sdk/client-dynamodb': 3.515.0
+      '@aws-sdk/client-dynamodb': 3.518.0
       tslib: 2.6.2
     dev: false
 
@@ -2289,10 +2289,10 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vitest/coverage-v8@1.3.0(vitest@1.3.0):
-    resolution: {integrity: sha512-e5Y5uK5NNoQMQaNitGQQjo9FoA5ZNcu7Bn6pH+dxUf48u6po1cX38kFBYUHZ9GNVkF4JLbncE0WeWwTw+nLrxg==}
+  /@vitest/coverage-v8@1.3.1(vitest@1.3.1):
+    resolution: {integrity: sha512-UuBnkSJUNE9rdHjDCPyJ4fYuMkoMtnghes1XohYa4At0MS3OQSAo97FrbwSLRshYsXThMZy1+ybD/byK5llyIg==}
     peerDependencies:
-      vitest: 1.3.0
+      vitest: 1.3.1
     dependencies:
       '@ampproject/remapping': 2.2.1
       '@bcoe/v8-coverage': 0.2.3
@@ -2307,43 +2307,43 @@ packages:
       std-env: 3.7.0
       test-exclude: 6.0.0
       v8-to-istanbul: 9.2.0
-      vitest: 1.3.0(@types/node@20.11.19)
+      vitest: 1.3.1(@types/node@20.11.19)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@vitest/expect@1.3.0:
-    resolution: {integrity: sha512-7bWt0vBTZj08B+Ikv70AnLRicohYwFgzNjFqo9SxxqHHxSlUJGSXmCRORhOnRMisiUryKMdvsi1n27Bc6jL9DQ==}
+  /@vitest/expect@1.3.1:
+    resolution: {integrity: sha512-xofQFwIzfdmLLlHa6ag0dPV8YsnKOCP1KdAeVVh34vSjN2dcUiXYCD9htu/9eM7t8Xln4v03U9HLxLpPlsXdZw==}
     dependencies:
-      '@vitest/spy': 1.3.0
-      '@vitest/utils': 1.3.0
+      '@vitest/spy': 1.3.1
+      '@vitest/utils': 1.3.1
       chai: 4.4.1
     dev: true
 
-  /@vitest/runner@1.3.0:
-    resolution: {integrity: sha512-1Jb15Vo/Oy7mwZ5bXi7zbgszsdIBNjc4IqP8Jpr/8RdBC4nF1CTzIAn2dxYvpF1nGSseeL39lfLQ2uvs5u1Y9A==}
+  /@vitest/runner@1.3.1:
+    resolution: {integrity: sha512-5FzF9c3jG/z5bgCnjr8j9LNq/9OxV2uEBAITOXfoe3rdZJTdO7jzThth7FXv/6b+kdY65tpRQB7WaKhNZwX+Kg==}
     dependencies:
-      '@vitest/utils': 1.3.0
+      '@vitest/utils': 1.3.1
       p-limit: 5.0.0
       pathe: 1.1.2
     dev: true
 
-  /@vitest/snapshot@1.3.0:
-    resolution: {integrity: sha512-swmktcviVVPYx9U4SEQXLV6AEY51Y6bZ14jA2yo6TgMxQ3h+ZYiO0YhAHGJNp0ohCFbPAis1R9kK0cvN6lDPQA==}
+  /@vitest/snapshot@1.3.1:
+    resolution: {integrity: sha512-EF++BZbt6RZmOlE3SuTPu/NfwBF6q4ABS37HHXzs2LUVPBLx2QoY/K0fKpRChSo8eLiuxcbCVfqKgx/dplCDuQ==}
     dependencies:
       magic-string: 0.30.7
       pathe: 1.1.2
       pretty-format: 29.7.0
     dev: true
 
-  /@vitest/spy@1.3.0:
-    resolution: {integrity: sha512-AkCU0ThZunMvblDpPKgjIi025UxR8V7MZ/g/EwmAGpjIujLVV2X6rGYGmxE2D4FJbAy0/ijdROHMWa2M/6JVMw==}
+  /@vitest/spy@1.3.1:
+    resolution: {integrity: sha512-xAcW+S099ylC9VLU7eZfdT9myV67Nor9w9zhf0mGCYJSO+zM2839tOeROTdikOi/8Qeusffvxb/MyBSOja1Uig==}
     dependencies:
       tinyspy: 2.2.1
     dev: true
 
-  /@vitest/utils@1.3.0:
-    resolution: {integrity: sha512-/LibEY/fkaXQufi4GDlQZhikQsPO2entBKtfuyIpr1jV4DpaeasqkeHjhdOhU24vSHshcSuEyVlWdzvv2XmYCw==}
+  /@vitest/utils@1.3.1:
+    resolution: {integrity: sha512-d3Waie/299qqRyHTm2DjADeTaNdNSVsnwHPWrs20JMpjh6eiVq7ggggweO8rc4arhf6rRkWuHKwvxGvejUXZZQ==}
     dependencies:
       diff-sequences: 29.6.3
       estree-walker: 3.0.3
@@ -2526,7 +2526,7 @@ packages:
       es-errors: 1.3.0
       get-intrinsic: 1.2.4
       is-array-buffer: 3.0.4
-      is-shared-array-buffer: 1.0.2
+      is-shared-array-buffer: 1.0.3
     dev: true
 
   /assertion-error@1.1.0:
@@ -2623,7 +2623,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001588
-      electron-to-chromium: 1.4.676
+      electron-to-chromium: 1.4.677
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -2958,8 +2958,8 @@ packages:
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  /electron-to-chromium@1.4.676:
-    resolution: {integrity: sha512-uHt4FB8SeYdhcOsj2ix/C39S7sPSNFJpzShjxGOm1KdF4MHyGqGi389+T5cErsodsijojXilYaHIKKqJfqh7uQ==}
+  /electron-to-chromium@1.4.677:
+    resolution: {integrity: sha512-erDa3CaDzwJOpyvfKhOiJjBVNnMM0qxHq47RheVVwsSQrgBA9ZSGV9kdaOfZDPXcHzhG7lBxhj6A7KvfLJBd6Q==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -2998,7 +2998,7 @@ packages:
       call-bind: 1.0.7
       es-define-property: 1.0.0
       es-errors: 1.3.0
-      es-set-tostringtag: 2.0.2
+      es-set-tostringtag: 2.0.3
       es-to-primitive: 1.2.1
       function.prototype.name: 1.1.6
       get-intrinsic: 1.2.4
@@ -3014,7 +3014,7 @@ packages:
       is-callable: 1.2.7
       is-negative-zero: 2.0.3
       is-regex: 1.1.4
-      is-shared-array-buffer: 1.0.2
+      is-shared-array-buffer: 1.0.3
       is-string: 1.0.7
       is-typed-array: 1.1.13
       is-weakref: 1.0.2
@@ -3028,9 +3028,9 @@ packages:
       string.prototype.trimend: 1.0.7
       string.prototype.trimstart: 1.0.7
       typed-array-buffer: 1.0.2
-      typed-array-byte-length: 1.0.0
-      typed-array-byte-offset: 1.0.1
-      typed-array-length: 1.0.4
+      typed-array-byte-length: 1.0.1
+      typed-array-byte-offset: 1.0.2
+      typed-array-length: 1.0.5
       unbox-primitive: 1.0.2
       which-typed-array: 1.1.14
     dev: true
@@ -3060,7 +3060,7 @@ packages:
       define-properties: 1.2.1
       es-abstract: 1.22.4
       es-errors: 1.3.0
-      es-set-tostringtag: 2.0.2
+      es-set-tostringtag: 2.0.3
       function-bind: 1.1.2
       get-intrinsic: 1.2.4
       globalthis: 1.0.3
@@ -3072,8 +3072,8 @@ packages:
       safe-array-concat: 1.1.0
     dev: true
 
-  /es-set-tostringtag@2.0.2:
-    resolution: {integrity: sha512-BuDyupZt65P9D2D2vA/zqcI3G5xRsklm5N3xCwuiy+/vKy8i0ifdsQP1sLgO4tZDSCaQUSnmC48khknGMV3D2Q==}
+  /es-set-tostringtag@2.0.3:
+    resolution: {integrity: sha512-3T8uNMC3OQTHkFUsFq8r/BwAXLHvU/9O9mE0fBc/MY5iq/8H7ncvO947LmYA6ldWw9Uh8Yhf25zu6n7nML5QWQ==}
     engines: {node: '>= 0.4'}
     dependencies:
       get-intrinsic: 1.2.4
@@ -3383,8 +3383,8 @@ packages:
       scslre: 0.3.0
     dev: true
 
-  /eslint-plugin-tailwindcss@3.14.2(tailwindcss@3.4.1):
-    resolution: {integrity: sha512-fNzdf4poZP2yQC0xC2prQxMuArMSb5mnellLQvwb9HC3NcLzxs+0IVKWIg1BqUqyui0c+bbjMmhWcKUWK67SLQ==}
+  /eslint-plugin-tailwindcss@3.14.3(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-1MKT8CrVuqVJleHxb7ICHsF2QwO0G+VJ28athTtlcOkccp0qmwK7nCUa1C9paCZ+VVgQU4fonsjLz/wUxoMHJQ==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
       tailwindcss: ^3.4.0
@@ -3436,7 +3436,7 @@ packages:
       eslint-rule-composer: 0.3.0
     dev: true
 
-  /eslint-plugin-vitest@0.3.22(@typescript-eslint/eslint-plugin@7.0.2)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.3.0):
+  /eslint-plugin-vitest@0.3.22(@typescript-eslint/eslint-plugin@7.0.2)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.3.1):
     resolution: {integrity: sha512-atkFGQ7aVgcuSeSMDqnyevIyUpfBPMnosksgEPrKE7Y8xQlqG/5z2IQ6UDau05zXaaFv7Iz8uzqvIuKshjZ0Zw==}
     engines: {node: ^18.0.0 || >= 20.0.0}
     peerDependencies:
@@ -3452,7 +3452,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 7.0.2(@typescript-eslint/parser@7.0.2)(eslint@8.56.0)(typescript@5.3.3)
       '@typescript-eslint/utils': 6.21.0(eslint@8.56.0)(typescript@5.3.3)
       eslint: 8.56.0
-      vitest: 1.3.0(@types/node@20.11.19)
+      vitest: 1.3.1(@types/node@20.11.19)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -3727,13 +3727,13 @@ packages:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
-      flatted: 3.3.0
+      flatted: 3.3.1
       keyv: 4.5.4
       rimraf: 3.0.2
     dev: true
 
-  /flatted@3.3.0:
-    resolution: {integrity: sha512-noqGuLw158+DuD9UPRKHpJ2hGxpFyDlYYrfM0mWt4XhT4n0lwzTLh70Tkdyy4kyTmyTT9Bv7bWAJqw7cgkEXDg==}
+  /flatted@3.3.1:
+    resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
     dev: true
 
   /for-each@0.3.3:
@@ -4186,8 +4186,9 @@ packages:
     resolution: {integrity: sha512-+2cnTEZeY5z/iXGbLhPrOAaK/Mau5k5eXq9j14CpRTftq0pAJu2MwVRSZhyZWBzx3o6X795Lz6Bpb6R0GKf37g==}
     dev: true
 
-  /is-shared-array-buffer@1.0.2:
-    resolution: {integrity: sha512-sqN2UDu1/0y6uvXyStCOzyhAjCSlHceFoMKJW8W9EU9cvic/QdsZ0kEU93HEy3IUEFZIiH/3w+AH/UQbPHNdhA==}
+  /is-shared-array-buffer@1.0.3:
+    resolution: {integrity: sha512-nA2hv5XIhLR3uVzDDfCIknerhx8XUKnstuOERPNNIinXG7v9u+ohXF67vxm4TPTEPU6lm61ZkwP3c9PCB97rhg==}
+    engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.7
     dev: true
@@ -5814,18 +5815,19 @@ packages:
       is-typed-array: 1.1.13
     dev: true
 
-  /typed-array-byte-length@1.0.0:
-    resolution: {integrity: sha512-Or/+kvLxNpeQ9DtSydonMxCx+9ZXOswtwJn17SNLvhptaXYDJvkFFP5zbfU/uLmvnBJlI4yrnXRxpdWH/M5tNA==}
+  /typed-array-byte-length@1.0.1:
+    resolution: {integrity: sha512-3iMJ9q0ao7WE9tWcaYKIptkNBuOIcZCCT0d4MRvuuH88fEoEH62IuQe0OtraD3ebQEoTRk8XCBoknUNc1Y67pw==}
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.7
       for-each: 0.3.3
+      gopd: 1.0.1
       has-proto: 1.0.3
       is-typed-array: 1.1.13
     dev: true
 
-  /typed-array-byte-offset@1.0.1:
-    resolution: {integrity: sha512-tcqKMrTRXjqvHN9S3553NPCaGL0VPgFI92lXszmrE8DMhiDPLBYLlvo8Uu4WZAAX/aGqp/T1sbA4ph8EWjDF9Q==}
+  /typed-array-byte-offset@1.0.2:
+    resolution: {integrity: sha512-Ous0vodHa56FviZucS2E63zkgtgrACj7omjwd/8lTEMEPFFyjfixMZ1ZXenpgCFBBt4EC1J2XsyVS2gkG0eTFA==}
     engines: {node: '>= 0.4'}
     dependencies:
       available-typed-arrays: 1.0.7
@@ -5836,12 +5838,16 @@ packages:
       is-typed-array: 1.1.13
     dev: true
 
-  /typed-array-length@1.0.4:
-    resolution: {integrity: sha512-KjZypGq+I/H7HI5HlOoGHkWUUGq+Q0TPhQurLbyrVrvnKTBgzLhIJ7j6J/XTQOi0d1RjyZ0wdas8bKs2p0x3Ng==}
+  /typed-array-length@1.0.5:
+    resolution: {integrity: sha512-yMi0PlwuznKHxKmcpoOdeLwxBoVPkqZxd7q2FgMkmD3bNwvF5VW0+UlUQ1k1vmktTu4Yu13Q0RIxEP8+B+wloA==}
+    engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.7
       for-each: 0.3.3
+      gopd: 1.0.1
+      has-proto: 1.0.3
       is-typed-array: 1.1.13
+      possible-typed-array-names: 1.0.0
     dev: true
 
   /typescript@5.3.3:
@@ -5914,8 +5920,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-node@1.3.0(@types/node@20.11.19):
-    resolution: {integrity: sha512-D/oiDVBw75XMnjAXne/4feCkCEwcbr2SU1bjAhCcfI5Bq3VoOHji8/wCPAfUkDIeohJ5nSZ39fNxM3dNZ6OBOA==}
+  /vite-node@1.3.1(@types/node@20.11.19):
+    resolution: {integrity: sha512-azbRrqRxlWTJEVbzInZCTchx0X69M/XPTCz4H+TLvlTcR/xH/3hkRqhOakT41fMJCMzXTu4UvegkZiEoJAWvng==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     dependencies:
@@ -5923,7 +5929,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.1.3(@types/node@20.11.19)
+      vite: 5.1.4(@types/node@20.11.19)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -5935,8 +5941,8 @@ packages:
       - terser
     dev: true
 
-  /vite@5.1.3(@types/node@20.11.19):
-    resolution: {integrity: sha512-UfmUD36DKkqhi/F75RrxvPpry+9+tTkrXfMNZD+SboZqBCMsxKtO52XeGzzuh7ioz+Eo/SYDBbdb0Z7vgcDJew==}
+  /vite@5.1.4(@types/node@20.11.19):
+    resolution: {integrity: sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -5971,15 +5977,15 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.3.0(@types/node@20.11.19):
-    resolution: {integrity: sha512-V9qb276J1jjSx9xb75T2VoYXdO1UKi+qfflY7V7w93jzX7oA/+RtYE6TcifxksxsZvygSSMwu2Uw6di7yqDMwg==}
+  /vitest@1.3.1(@types/node@20.11.19):
+    resolution: {integrity: sha512-/1QJqXs8YbCrfv/GPQ05wAZf2eakUPLPa18vkJAKE7RXOKfVHqMZZ1WlTjiwl6Gcn65M5vpNUB6EFLnEdRdEXQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
       '@types/node': ^18.0.0 || >=20.0.0
-      '@vitest/browser': 1.3.0
-      '@vitest/ui': 1.3.0
+      '@vitest/browser': 1.3.1
+      '@vitest/ui': 1.3.1
       happy-dom: '*'
       jsdom: '*'
     peerDependenciesMeta:
@@ -5997,11 +6003,11 @@ packages:
         optional: true
     dependencies:
       '@types/node': 20.11.19
-      '@vitest/expect': 1.3.0
-      '@vitest/runner': 1.3.0
-      '@vitest/snapshot': 1.3.0
-      '@vitest/spy': 1.3.0
-      '@vitest/utils': 1.3.0
+      '@vitest/expect': 1.3.1
+      '@vitest/runner': 1.3.1
+      '@vitest/snapshot': 1.3.1
+      '@vitest/spy': 1.3.1
+      '@vitest/utils': 1.3.1
       acorn-walk: 8.3.2
       chai: 4.4.1
       debug: 4.3.4
@@ -6014,8 +6020,8 @@ packages:
       strip-literal: 2.0.0
       tinybench: 2.6.0
       tinypool: 0.8.2
-      vite: 5.1.3(@types/node@20.11.19)
-      vite-node: 1.3.0(@types/node@20.11.19)
+      vite: 5.1.4(@types/node@20.11.19)
+      vite-node: 1.3.1(@types/node@20.11.19)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -6145,7 +6151,7 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  github.com/rheactor/eslint-config-rheactor/2685f6200ff71eda0716f7bdd23cfbf75a6865e4(tailwindcss@3.4.1)(typescript@5.3.3)(vitest@1.3.0):
+  github.com/rheactor/eslint-config-rheactor/2685f6200ff71eda0716f7bdd23cfbf75a6865e4(tailwindcss@3.4.1)(typescript@5.3.3)(vitest@1.3.1):
     resolution: {tarball: https://codeload.github.com/rheactor/eslint-config-rheactor/tar.gz/2685f6200ff71eda0716f7bdd23cfbf75a6865e4}
     id: github.com/rheactor/eslint-config-rheactor/2685f6200ff71eda0716f7bdd23cfbf75a6865e4
     name: '@rheactor/eslint-config-rheactor'
@@ -6161,12 +6167,12 @@ packages:
       eslint-plugin-promise: 6.1.1(eslint@8.56.0)
       eslint-plugin-react: 7.33.2(eslint@8.56.0)
       eslint-plugin-regexp: 2.2.0(eslint@8.56.0)
-      eslint-plugin-tailwindcss: 3.14.2(tailwindcss@3.4.1)
+      eslint-plugin-tailwindcss: 3.14.3(tailwindcss@3.4.1)
       eslint-plugin-unicorn: 51.0.1(eslint@8.56.0)
       eslint-plugin-unused-imports: 3.1.0(@typescript-eslint/eslint-plugin@7.0.2)(eslint@8.56.0)
-      eslint-plugin-vitest: 0.3.22(@typescript-eslint/eslint-plugin@7.0.2)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.3.0)
+      eslint-plugin-vitest: 0.3.22(@typescript-eslint/eslint-plugin@7.0.2)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.3.1)
       prettier: 3.2.5
-      vitest: 1.3.0(@types/node@20.11.19)
+      vitest: 1.3.1(@types/node@20.11.19)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -6175,7 +6181,7 @@ packages:
       - typescript
     dev: true
 
-  github.com/triforce-heroes/triforce-core/120410fa46e48b6949ae5dc22a28a59ad031a544(@aws-sdk/client-dynamodb@3.515.0)(@aws-sdk/client-s3@3.515.0)(@aws-sdk/credential-providers@3.515.0)(@aws-sdk/util-dynamodb@3.515.0)(commander@12.0.0):
+  github.com/triforce-heroes/triforce-core/120410fa46e48b6949ae5dc22a28a59ad031a544(@aws-sdk/client-dynamodb@3.518.0)(@aws-sdk/client-s3@3.515.0)(@aws-sdk/credential-providers@3.515.0)(@aws-sdk/util-dynamodb@3.518.0)(commander@12.0.0):
     resolution: {tarball: https://codeload.github.com/triforce-heroes/triforce-core/tar.gz/120410fa46e48b6949ae5dc22a28a59ad031a544}
     id: github.com/triforce-heroes/triforce-core/120410fa46e48b6949ae5dc22a28a59ad031a544
     name: '@triforce-heroes/triforce-core'
@@ -6187,10 +6193,10 @@ packages:
       '@aws-sdk/util-dynamodb': ^3.515.0
       commander: ^12.0.0
     dependencies:
-      '@aws-sdk/client-dynamodb': 3.515.0
+      '@aws-sdk/client-dynamodb': 3.518.0
       '@aws-sdk/client-s3': 3.515.0
       '@aws-sdk/credential-providers': 3.515.0
-      '@aws-sdk/util-dynamodb': 3.515.0(@aws-sdk/client-dynamodb@3.515.0)
+      '@aws-sdk/util-dynamodb': 3.518.0(@aws-sdk/client-dynamodb@3.518.0)
       chalk: 5.3.0
       commander: 12.0.0
       json-diff: 1.0.6

@@ -77,19 +77,20 @@ describe("driver ZTFH", () => {
     ["\u000E\0\u0003\u0002\u0000", 0, 3, "\u0000"],
     ["\u000E\0\u0003\u0002\uFFFF", 0, 3, "\uFFFD"],
     ["\u000E\u0001\u0000\u0000", 1, 0, ""],
-    ["\uE0E9", "button", "\uE0E9"],
-    ["\uE9E0", "button", "\uE9E0"],
-    ["\uE100", "button", "\uE100"],
+    ["\u000E\u0000\u0002\u0002\u0082", 0, 2, "\u0082"],
+    ["\uE0E9", 0xff_ff, 0, "\uE0E9"],
+    ["\uE9E0", 0xff_ff, 0, "\uE9E0"],
+    ["\uE100", 0xff_ff, 0, "\uE100"],
   ] as const;
 
   it.each(defineTests)(
     "test define(%j)",
-    (input, type, subtype, attributes?) => {
+    (input, type, subtype, attributes) => {
       expect(ZTFH.define(new EntryCommand(input))).toStrictEqual(
         new EntryCommandDefined(input, {
           type,
           subtype,
-          ...(attributes !== undefined && { attributes }),
+          attributes,
         }),
       );
     },

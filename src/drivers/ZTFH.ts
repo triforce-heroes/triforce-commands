@@ -25,18 +25,25 @@ matcher.addExpression(
 
 matcher.addFailureLiteral("\u000E");
 
+interface Attributes extends Record<string, unknown> {
+  type: number;
+  subtype: number;
+  attributes: string;
+}
+
 export const ZTFH = new Driver(
   "ZTFH",
   (input) => matcher.match(input),
   (input) => {
     if (input.length === 1) {
       return new EntryCommandDefined(input, {
-        type: "button",
-        subtype: input,
-      });
+        type: 0xff_ff,
+        subtype: 0,
+        attributes: input,
+      } as Attributes);
     }
 
-    const consumer = new BufferConsumer(Buffer.from(input, "binary"), 1);
+    const consumer = new BufferConsumer(Buffer.from(input), 1);
 
     const type = consumer.readUnsignedInt8();
     const subtype = consumer.readUnsignedInt8();
@@ -46,6 +53,6 @@ export const ZTFH = new Driver(
       type,
       subtype,
       attributes,
-    });
+    } as Attributes);
   },
 );

@@ -1,0 +1,1 @@
+import{TPHD as e}from"./TPHD.js";import{ZTFH as r}from"./ZTFH.js";let o=Object.fromEntries(Object.entries({TPHD:e,ZTFH:r}).map(([e,r])=>[e.toLowerCase(),r]));export function loadEngineDriver(e){return o[e.toLowerCase()]}
