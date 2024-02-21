@@ -28,7 +28,7 @@ matcher.addFailureLiteral("\u000E");
 interface Attributes extends Record<string, unknown> {
   type: number;
   subtype: number;
-  attributes: string;
+  attributes: number[];
 }
 
 export const ZTFH = new Driver(
@@ -39,7 +39,7 @@ export const ZTFH = new Driver(
       return new EntryCommandDefined(input, {
         type: 0xff_ff,
         subtype: 0,
-        attributes: input,
+        attributes: [input.codePointAt(0)],
       } as Attributes);
     }
 
@@ -47,7 +47,16 @@ export const ZTFH = new Driver(
 
     const type = consumer.readUnsignedInt8();
     const subtype = consumer.readUnsignedInt8();
-    const attributes = consumer.readLengthPrefixedString(1);
+    const attributes: number[] = [];
+    const attributesBuffer = Buffer.from(input.slice(4), "utf16le");
+
+    for (
+      let attributeIndex = 0;
+      attributeIndex < attributesBuffer.length;
+      attributeIndex += 2
+    ) {
+      attributes.push(attributesBuffer.readUInt16LE(attributeIndex));
+    }
 
     return new EntryCommandDefined(input, {
       type,
