@@ -6,5 +6,6 @@ export { EntryText } from "./entries/EntryText.js";
 
 export type { Driver } from "./Driver.js";
 
+export { RAW as RAWDriver } from "./drivers/RAW.js";
 export { TPHD as TPHDDriver } from "./drivers/TPHD.js";
 export { ZTFH as ZTFHDriver } from "./drivers/ZTFH.js";

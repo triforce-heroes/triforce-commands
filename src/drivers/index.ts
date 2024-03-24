@@ -1,10 +1,11 @@
 import { Driver } from "../Driver.js";
 
+import { RAW } from "./RAW.js";
 import { TPHD } from "./TPHD.js";
 import { ZTFH } from "./ZTFH.js";
 
 const enginesDrivers = Object.fromEntries(
-  Object.entries({ TPHD, ZTFH }).map(([key, value]) => [
+  Object.entries({ RAW, TPHD, ZTFH }).map(([key, value]) => [
     key.toLowerCase(),
     value,
   ]),

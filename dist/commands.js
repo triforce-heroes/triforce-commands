@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-import{program as e}from"commander";import{ExtractCommand as n}from"./commands/ExtractCommand.js";e.command("extract-commands").description("extract all commands based on publishable.json").argument("<engine driver>",'engine driver to be used (eg. "ZTFH")').action(n),e.parse();
+import{program as e}from"commander";import{ExtractCommand as n}from"./commands/ExtractCommand.js";e.command("extract-commands").description("extract all commands based on publishable.json").argument("<engine driver>",'engine driver to be used (eg. "RAW", "ZTFH"...)').action(n),e.parse();
