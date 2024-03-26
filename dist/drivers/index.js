@@ -1,1 +1,1 @@
-import{RAW as r}from"./RAW.js";import{TPHD as e}from"./TPHD.js";import{ZTFH as o}from"./ZTFH.js";let t=Object.fromEntries(Object.entries({RAW:r,TPHD:e,ZTFH:o}).map(([r,e])=>[r.toLowerCase(),e]));export function loadEngineDriver(r){return t[r.toLowerCase()]}
+import{HWAC as r}from"./HWAC.js";import{RAW as o}from"./RAW.js";import{TPHD as e}from"./TPHD.js";import{ZTFH as t}from"./ZTFH.js";let m=Object.fromEntries(Object.entries({HWAC:r,RAW:o,TPHD:e,ZTFH:t}).map(([r,o])=>[r.toLowerCase(),o]));export function loadEngineDriver(r){return m[r.toLowerCase()]}

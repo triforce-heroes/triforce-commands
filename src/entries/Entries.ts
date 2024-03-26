@@ -37,7 +37,7 @@ export class Entries {
       }
 
       if (entry instanceof EntryCompressed) {
-        result += `<${entry.index}>`;
+        result += `<${String(entry.index)}>`;
 
         continue;
       }
@@ -53,7 +53,7 @@ export class Entries {
         });
       }
 
-      result += `<${commands.get(entry.command)!.index}>`;
+      result += `<${String(commands.get(entry.command)!.index)}>`;
     }
 
     return result;
@@ -103,7 +103,7 @@ export class Entries {
           });
         }
 
-        return `<${commands.get(match)!.index}>`;
+        return `<${String(commands.get(match)!.index)}>`;
       })
       .replaceAll(NON_INDEXABLE_REGEXP, " ")
       .replaceAll(MULTIPLE_SPACES_REGEXP, " ")
@@ -126,7 +126,7 @@ export class Entries {
     const decompressed = compressed.replaceAll(COMMAND_REGEXP, (_, index) => {
       const command = compressedCommands.get(Number(index));
 
-      return command === undefined ? `<${index}>` : command.contents;
+      return command === undefined ? `<${String(index)}>` : command.contents;
     });
 
     if (entries === undefined) {
@@ -145,7 +145,7 @@ export class Entries {
 
     return decompressed.replaceAll(
       COMMAND_STRICT_REGEXP,
-      (_, index) => entriesCommandsValues[index - 1] ?? `<${index}>`,
+      (_, index) => entriesCommandsValues[index - 1] ?? `<${String(index)}>`,
     );
   }
 }
