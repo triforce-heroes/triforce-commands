@@ -23,9 +23,9 @@
   "devDependencies": {
     "@rheactor/eslint-config-rheactor": "github:rheactor/eslint-config-rheactor",
     "@swc/cli": "^0.3.12",
-    "@swc/core": "^1.5.7",
+    "@swc/core": "^1.5.24",
     "@triforce-heroes/triforce-core": "github:triforce-heroes/triforce-core",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.12.13",
     "@vitest/coverage-v8": "^1.6.0",
     "commander": "^12.1.0",
     "rimraf": "^5.0.7",

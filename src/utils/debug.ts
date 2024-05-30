@@ -25,8 +25,8 @@ export function debugEntries(
   process.stdout.write(
     inspect(
       {
-        knowns: [...knowns].sort(),
         unknowns: [...unknowns].sort(),
+        knowns: [...knowns].sort(),
       },
       {
         depth: null,

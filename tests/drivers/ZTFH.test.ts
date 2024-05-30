@@ -51,6 +51,14 @@ describe("driver ZTFH", () => {
       ],
     ],
     ["\u000E\u0001\0\0", [new EntryCommand("\u000E\u0001\0\0")]],
+    [
+      "\uE001\u000F\u0001\u0010\u000E\0\0\0",
+      [
+        new EntryCommand("\uE001"),
+        new EntryCommand("\u000F\u0001\u0010"),
+        new EntryCommand("\u000E\0\0\0"),
+      ],
+    ],
   ];
 
   it.each(tests)("test %j", (input, output) => {
@@ -84,9 +92,10 @@ describe("driver ZTFH", () => {
       3,
       [0x00_00, 0xff_ff, 0xcd_00],
     ],
-    ["\uE0E9", 0xff_ff, 0, [0xe0_e9]],
-    ["\uE9E0", 0xff_ff, 0, [0xe9_e0]],
-    ["\uE100", 0xff_ff, 0, [0xe1_00]],
+    ["\uE0E9", 0xff_ff_00, 0, [0xe0_e9]],
+    ["\uE9E0", 0xff_ff_00, 0, [0xe9_e0]],
+    ["\uE100", 0xff_ff_00, 0, [0xe1_00]],
+    ["\u000F\u0001\u0010", 0xff_ff_0f, 0, [0x01, 0x10]],
   ] as const;
 
   it.each(defineTests)(
