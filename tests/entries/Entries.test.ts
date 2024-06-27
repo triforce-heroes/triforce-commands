@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { TPHD } from "../../src/drivers/TPHD.js";
 import { Entries } from "../../src/entries/Entries.js";
 import { EntryCommand } from "../../src/entries/EntryCommand.js";
 import { EntryCompressed } from "../../src/entries/EntryCompressed.js";
@@ -64,5 +65,31 @@ describe("class Entries", () => {
     );
 
     expect(sampleCompressed.toRaw()).toBe(" Hello <1><2><2><2><3><4><5>\n! ");
+  });
+});
+
+describe("class Entries", () => {
+  it("method toCompress() over compress", () => {
+    const sample = TPHD.parseRaw("Hello \u001A\u0002\n\u001A\u0003\u0000!");
+    const sampleCompressed = sample.toCompressed();
+
+    expect(sampleCompressed.toText()).toBe("Hello<1><2>!");
+    expect(sampleCompressed.fromCompressed("Olá<1><2>!", sample)).toBe(
+      "Olá \u001A\u0002\n\u001A\u0003\u0000!",
+    );
+
+    const sampleOverCompressed = sampleCompressed.toCompressed();
+
+    expect(sampleOverCompressed.toText()).toBe("Hello<1>!");
+
+    const sampleDecompressed = sampleOverCompressed.fromCompressed(
+      "Olá<1>!",
+      sampleCompressed,
+    );
+
+    expect(sampleDecompressed).toBe("Olá<1><2>!");
+    expect(sampleCompressed.fromCompressed(sampleDecompressed, sample)).toBe(
+      "Olá \u001A\u0002\n\u001A\u0003\u0000!",
+    );
   });
 });

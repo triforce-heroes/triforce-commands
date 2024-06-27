@@ -22,15 +22,16 @@
   },
   "devDependencies": {
     "@rheactor/eslint-config-rheactor": "github:rheactor/eslint-config-rheactor",
-    "@swc/cli": "^0.3.12",
-    "@swc/core": "^1.5.24",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.7.0",
     "@triforce-heroes/triforce-core": "github:triforce-heroes/triforce-core",
-    "@types/node": "^20.12.13",
-    "@vitest/coverage-v8": "^1.6.0",
+    "@types/node": "^20.14.11",
+    "@vitest/coverage-v8": "^2.0.4",
     "commander": "^12.1.0",
-    "rimraf": "^5.0.7",
-    "tsx": "^4.11.0",
-    "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "eslint-plugin-vitest": "^0.4.1",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.4"
   }
 }

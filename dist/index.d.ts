@@ -8,3 +8,4 @@ export { RAW as RAWDriver } from "./drivers/RAW.js";
 export { HWAC as HWACDriver } from "./drivers/HWAC.js";
 export { TPHD as TPHDDriver } from "./drivers/TPHD.js";
 export { ZTFH as ZTFHDriver } from "./drivers/ZTFH.js";
+export { NLOC as NLOCDriver } from "./drivers/NLOC.js";
