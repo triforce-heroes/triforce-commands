@@ -18,18 +18,24 @@ describe("driver TPHD", () => {
       ]),
     );
 
-    expect(TPHD.parseRaw("Hello \u001A\u0002World!")).toStrictEqual(
+    expect(TPHD.parseRaw("Hello \u001A\u0004\u0000\u0001World!")).toStrictEqual(
       new Entries([
         new EntryText("Hello "),
-        new EntryCommand("\u001A\u0002"),
+        new EntryCommand("\u001A\u0004\u0000\u0001"),
         new EntryText("World!"),
       ]),
     );
   });
 
   it("test definition()", () => {
-    expect(TPHD.define(new EntryCommand("ABC"))).toStrictEqual(
-      new EntryCommandDefined("ABC"),
+    expect(
+      TPHD.define(new EntryCommand("\u001A\u0004\u0000\u0001")),
+    ).toStrictEqual(
+      new EntryCommandDefined("\u001A\u0004\u0000\u0001", {
+        type: 4,
+        subtype: 256,
+        attributes: [],
+      }),
     );
   });
 });
