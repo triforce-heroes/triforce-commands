@@ -43,7 +43,7 @@ export const TPHD = new Driver(
       } as Attributes);
     }
 
-    const consumer = new BufferConsumer(Buffer.from(input), 1);
+    const consumer = new BufferConsumer(Buffer.from(input, "binary"), 1);
 
     return new EntryCommandDefined(input, {
       type: consumer.readUnsignedInt8(),
