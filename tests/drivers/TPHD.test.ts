@@ -8,7 +8,7 @@ import { EntryText } from "../../src/entries/EntryText.js";
 
 describe("driver TPHD", () => {
   it("test", () => {
-    expect(TPHD.name, "TPHD");
+    expect(TPHD.name).toBe("TPHD");
 
     expect(TPHD.parseRaw("Hello \u001A\u0007World!")).toStrictEqual(
       new Entries([

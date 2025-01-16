@@ -8,7 +8,7 @@ import { EntryText } from "../../src/entries/EntryText.js";
 
 describe("driver NLOC", () => {
   it("test", () => {
-    expect(NLOC.name, "NLOC");
+    expect(NLOC.name).toBe("NLOC");
 
     expect(NLOC.parseRaw("Hello {p}!")).toStrictEqual(
       new Entries([

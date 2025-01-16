@@ -8,6 +8,10 @@ import { EntryCommandDefined } from "../../src/entries/EntryCommandDefined.js";
 import { EntryText } from "../../src/entries/EntryText.js";
 
 describe("driver ZTFH", () => {
+  it("test", () => {
+    expect(ZTFH.name).toBe("ZTFH");
+  });
+
   const tests: Array<[input: string, output: Entry[]]> = [
     ["Hello", [new EntryText("Hello")]],
     ["\uE001", [new EntryCommand("\uE001")]],

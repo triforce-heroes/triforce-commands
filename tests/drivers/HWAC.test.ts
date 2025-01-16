@@ -5,7 +5,7 @@ import { Entries, EntryCommand, EntryText } from "../../src/index.js";
 
 describe("driver HWAC", () => {
   it("test", () => {
-    expect(HWAC.name, "HWAC");
+    expect(HWAC.name).toBe("HWAC");
 
     expect(
       HWAC.parseRaw(
