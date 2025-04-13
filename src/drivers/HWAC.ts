@@ -1,8 +1,7 @@
-/* eslint-disable no-control-regex */
-import { CommandsMatcher } from "../CommandsMatcher.js";
-import { Driver } from "../Driver.js";
+import { CommandsMatcher } from "@/CommandsMatcher.js";
+import { Driver } from "@/Driver.js";
 
-const matcher = new CommandsMatcher((input) => /[[%^\\]/.test(input));
+const matcher = new CommandsMatcher((input) => /[%[\\^]/.test(input));
 
 matcher.addLiteral("%d");
 matcher.addLiteral("%s");

@@ -1,4 +1,4 @@
-import { Rule } from "./Rule.js";
+import { Rule } from "@/rules/Rule.js";
 
 type Consume = number | ((input: string, offset: number) => string);
 

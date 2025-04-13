@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { ZTFH } from "../../src/drivers/ZTFH.js";
-import { Entries } from "../../src/entries/Entries.js";
-import { Entry } from "../../src/entries/Entry.js";
-import { EntryCommand } from "../../src/entries/EntryCommand.js";
-import { EntryCommandDefined } from "../../src/entries/EntryCommandDefined.js";
-import { EntryText } from "../../src/entries/EntryText.js";
+import { ZTFH } from "@/drivers/ZTFH.js";
+import { Entries } from "@/entries/Entries.js";
+import type { Entry } from "@/entries/Entry.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
+import { EntryCommandDefined } from "@/entries/EntryCommandDefined.js";
+import { EntryText } from "@/entries/EntryText.js";
 
 describe("driver ZTFH", () => {
   it("test", () => {

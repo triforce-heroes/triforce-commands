@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { program } from "commander";
 
-import { ExtractCommand } from "./commands/ExtractCommand.js";
+import { ExtractCommand } from "@/commands/ExtractCommand.js";
 
 program
   .command("extract-commands")

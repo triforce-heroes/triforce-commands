@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { TPHD } from "../../src/drivers/TPHD.js";
-import { Entries } from "../../src/entries/Entries.js";
-import { EntryCommand } from "../../src/entries/EntryCommand.js";
-import { EntryCompressed } from "../../src/entries/EntryCompressed.js";
-import { EntryText } from "../../src/entries/EntryText.js";
+import { TPHD } from "@/drivers/TPHD.js";
+import { Entries } from "@/entries/Entries.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
+import { EntryCompressed } from "@/entries/EntryCompressed.js";
+import { EntryText } from "@/entries/EntryText.js";
 
-describe("class Entries", () => {
+describe("class Entries #1", () => {
   const sampleEntries = new Entries([
     new EntryText(" Hello "),
     new EntryCommand("W"),
@@ -68,7 +68,7 @@ describe("class Entries", () => {
   });
 });
 
-describe("class Entries", () => {
+describe("class Entries #2", () => {
   it("method toCompress() over compress", () => {
     const sample = TPHD.parseRaw("Hello \u001A\u0002\n\u001A\u0003\u0000!");
     const sampleCompressed = sample.toCompressed();

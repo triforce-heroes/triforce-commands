@@ -1,6 +1,6 @@
-import { Entries } from "./entries/Entries.js";
-import { Entry } from "./entries/Entry.js";
-import { EntryText } from "./entries/EntryText.js";
+import { Entries } from "@/entries/Entries.js";
+import type { Entry } from "@/entries/Entry.js";
+import { EntryText } from "@/entries/EntryText.js";
 
 export class CommandsBuilder {
   private readonly inEntries: Entry[] = [];

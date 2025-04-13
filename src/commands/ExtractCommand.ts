@@ -2,8 +2,8 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 
 import { fatal } from "@triforce-heroes/triforce-core/Console";
 
-import { loadEngineDriver } from "../drivers/index.js";
-import { EntryCommand } from "../index.js";
+import { loadEngineDriver } from "@/drivers/index.js";
+import { EntryCommand } from "@/index.js";
 
 interface Publishable {
   sources: Record<string, string>;

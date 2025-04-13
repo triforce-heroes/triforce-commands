@@ -1,4 +1,4 @@
-import { Entry } from "./Entry.js";
+import type { Entry } from "./Entry.js";
 export declare class Entries {
     readonly entries: Entry[];
     constructor(entries: Entry[]);

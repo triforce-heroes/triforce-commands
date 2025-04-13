@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { TPHD } from "../../src/drivers/TPHD.js";
-import { Entries } from "../../src/entries/Entries.js";
-import { EntryCommand } from "../../src/entries/EntryCommand.js";
-import { EntryCommandDefined } from "../../src/entries/EntryCommandDefined.js";
-import { EntryText } from "../../src/entries/EntryText.js";
+import { TPHD } from "@/drivers/TPHD.js";
+import { Entries } from "@/entries/Entries.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
+import { EntryCommandDefined } from "@/entries/EntryCommandDefined.js";
+import { EntryText } from "@/entries/EntryText.js";
 
 describe("driver TPHD", () => {
   it("test", () => {

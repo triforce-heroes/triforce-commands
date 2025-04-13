@@ -1,7 +1,9 @@
-import { Entry } from "./Entry.js";
-import { EntryCommand } from "./EntryCommand.js";
-import { EntryCompressed } from "./EntryCompressed.js";
-import { EntryText } from "./EntryText.js";
+/* eslint-disable regexp/prefer-named-capture-group */
+/* eslint-disable prefer-named-capture-group */
+import type { Entry } from "@/entries/Entry.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
+import { EntryCompressed } from "@/entries/EntryCompressed.js";
+import { EntryText } from "@/entries/EntryText.js";
 
 interface Command {
   index: number;
@@ -20,7 +22,7 @@ const MULTIPLE_COMMANDS_REGEXP = /(?:<\s*\d+\s*>)+/g;
 
 const MULTIPLE_SPACES_REGEXP = /\s+/g;
 
-const NON_INDEXABLE_REGEXP = /[^\p{L}\p{N}\p{Pc}\p{Po}\p{Pd}\s<>]+/gu;
+const NON_INDEXABLE_REGEXP = /[^\s\p{L}\p{N}\p{Pc}\p{Pd}\p{Po}<>]+/gu;
 
 export class Entries {
   public constructor(public readonly entries: Entry[]) {}

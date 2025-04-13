@@ -1,4 +1,4 @@
-import { Rule } from "./Rule.js";
+import { Rule } from "@/rules/Rule.js";
 
 export class RuleFailureExpression extends Rule {
   public readonly expression: RegExp;

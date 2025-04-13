@@ -1,9 +1,8 @@
-/* eslint-disable no-control-regex */
 import { BufferConsumer } from "@triforce-heroes/triforce-core/BufferConsumer";
 
-import { CommandsMatcher } from "../CommandsMatcher.js";
-import { Driver } from "../Driver.js";
-import { EntryCommandDefined } from "../entries/EntryCommandDefined.js";
+import { CommandsMatcher } from "@/CommandsMatcher.js";
+import { Driver } from "@/Driver.js";
+import { EntryCommandDefined } from "@/entries/EntryCommandDefined.js";
 
 const matcher = new CommandsMatcher();
 
@@ -23,7 +22,7 @@ matcher.addLiteral("\u009C");
 matcher.addLiteral("\u0096");
 matcher.addLiteral("\u00A0");
 
-matcher.addFailureExpression(/[^-\p{L}\d\n !?'"&()*+,.%/:;=~¡¿©«»_°×]/u);
+matcher.addFailureExpression(/[^\d\p{L}\n !"%&'()*+,\-./:;=?_~¡©«°»¿×]/u);
 
 interface Attributes extends Record<string, unknown> {
   type: number;
@@ -39,7 +38,7 @@ export const TPHD = new Driver(
       return new EntryCommandDefined(input, {
         type: 0,
         subtype: 0,
-        attributes: [...input].map((c) => c.codePointAt(0)!),
+        attributes: [...input].map((character) => character.codePointAt(0)!),
       } as Attributes);
     }
 

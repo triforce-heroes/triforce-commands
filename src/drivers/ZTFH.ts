@@ -1,12 +1,12 @@
 /* eslint-disable no-control-regex */
 import { BufferConsumer } from "@triforce-heroes/triforce-core/BufferConsumer";
 
-import { CommandsMatcher } from "../CommandsMatcher.js";
-import { Driver } from "../Driver.js";
-import { EntryCommandDefined } from "../entries/EntryCommandDefined.js";
+import { CommandsMatcher } from "@/CommandsMatcher.js";
+import { Driver } from "@/Driver.js";
+import { EntryCommandDefined } from "@/entries/EntryCommandDefined.js";
 
-const buttonExpression = /[\uE000-\uEFFF]/;
-const advanceExpression = /[\u000E\u000F\uE000-\uEFFF]/u;
+const buttonExpression = /[\ue000-\uefff]/;
+const advanceExpression = /[\x0e\x0f\u{e000}-\u{efff}]/u;
 
 const matcher = new CommandsMatcher(
   (input) => advanceExpression.test(input),
@@ -19,12 +19,12 @@ const matcher = new CommandsMatcher(
 
 matcher.addExpression(buttonExpression);
 matcher.addExpression(
-  /\u000E..(.)/u,
-  (matches) => matches[1]!.codePointAt(0)! / 2,
+  /\x0e..(?<length>.)/u,
+  (matches) => matches.groups!["length"]!.codePointAt(0)! / 2,
 );
-matcher.addExpression(/\u000F\u0001\u0010/u);
-matcher.addExpression(/\u000F\u0002\u0002/u);
-matcher.addExpression(/\u000F\u0002\0/u);
+matcher.addExpression(/\x0f\x01\x10/u);
+matcher.addExpression(/\x0f\x02\x02/u);
+matcher.addExpression(/\x0f\x02\0/u);
 
 matcher.addFailureLiteral("\u000E");
 matcher.addFailureLiteral("\u000F");

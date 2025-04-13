@@ -1,9 +1,10 @@
+/* eslint-disable vitest/max-expects */
 import { describe, expect, it } from "vitest";
 
-import { PKLA } from "../../src/drivers/PKLA.js";
-import { Entries } from "../../src/entries/Entries.js";
-import { EntryText } from "../../src/entries/EntryText.js";
-import { EntryCommand } from "../../src/index.js";
+import { PKLA } from "@/drivers/PKLA.js";
+import { Entries } from "@/entries/Entries.js";
+import { EntryText } from "@/entries/EntryText.js";
+import { EntryCommand } from "@/index.js";
 
 describe("driver PKLA", () => {
   it("test", () => {

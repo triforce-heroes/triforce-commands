@@ -1,4 +1,4 @@
-import { EntryCommand } from "./EntryCommand.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
 
 export class EntryCommandDefined extends EntryCommand {
   public constructor(

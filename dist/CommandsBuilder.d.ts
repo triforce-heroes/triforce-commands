@@ -1,5 +1,5 @@
 import { Entries } from "./entries/Entries.js";
-import { Entry } from "./entries/Entry.js";
+import type { Entry } from "./entries/Entry.js";
 export declare class CommandsBuilder {
     private readonly input;
     private readonly advancer?;

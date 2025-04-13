@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 
-import { UDK } from "../../src/drivers/UDK.js";
-import { Entries } from "../../src/entries/Entries.js";
-import { EntryText } from "../../src/entries/EntryText.js";
+import { UDK } from "@/drivers/UDK.js";
+import { Entries } from "@/entries/Entries.js";
+import { EntryText } from "@/entries/EntryText.js";
 
 describe("driver UDK", () => {
   it("test", () => {

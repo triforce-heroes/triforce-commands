@@ -1,1 +1,0 @@
-import{HWAC as r}from"./HWAC.js";import{PKLA as o}from"./PKLA.js";import{RAW as t}from"./RAW.js";import{TPHD as e}from"./TPHD.js";import{UDK as m}from"./UDK.js";import{ZTFH as i}from"./ZTFH.js";let s=Object.fromEntries(Object.entries({HWAC:r,PKLA:o,RAW:t,TPHD:e,UDK:m,ZTFH:i}).map(([r,o])=>[r.toLowerCase(),o]));export function loadEngineDriver(r){return s[r.toLowerCase()]}

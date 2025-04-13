@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { CommandsMatcher } from "../src/CommandsMatcher.js";
-import { Entries } from "../src/entries/Entries.js";
-import { EntryCommand } from "../src/entries/EntryCommand.js";
-import { EntryCommandUnknown } from "../src/entries/EntryCommandUnknown.js";
-import { EntryText } from "../src/entries/EntryText.js";
+import { CommandsMatcher } from "@/CommandsMatcher.js";
+import { Entries } from "@/entries/Entries.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
+import { EntryCommandUnknown } from "@/entries/EntryCommandUnknown.js";
+import { EntryText } from "@/entries/EntryText.js";
 
 describe("class CommandsMatcher", () => {
   it("method addLiteral()", () => {
@@ -83,6 +83,7 @@ describe("class CommandsMatcher", () => {
   it("method addExpression() with consumer", () => {
     const matcher = new CommandsMatcher();
 
+    // eslint-disable-next-line prefer-named-capture-group, regexp/prefer-named-capture-group
     matcher.addExpression(/B(.)/, (matches) => matches[1]!.codePointAt(0)!);
 
     expect(matcher.match("AB\u0000B\u0001CB\u0002CDE")).toStrictEqual(

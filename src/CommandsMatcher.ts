@@ -1,13 +1,13 @@
-import { CommandsBuilder } from "./CommandsBuilder.js";
-import { Entries } from "./entries/Entries.js";
-import { EntryCommand } from "./entries/EntryCommand.js";
-import { EntryCommandUnknown } from "./entries/EntryCommandUnknown.js";
-import { EntryText } from "./entries/EntryText.js";
-import { Rule } from "./rules/Rule.js";
-import { RuleExpression } from "./rules/RuleExpression.js";
-import { RuleFailureExpression } from "./rules/RuleFailureExpression.js";
-import { RuleFailureLiteral } from "./rules/RuleFailureLiteral.js";
-import { RuleLiteral } from "./rules/RuleLiteral.js";
+import { CommandsBuilder } from "@/CommandsBuilder.js";
+import { Entries } from "@/entries/Entries.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
+import { EntryCommandUnknown } from "@/entries/EntryCommandUnknown.js";
+import { EntryText } from "@/entries/EntryText.js";
+import type { Rule } from "@/rules/Rule.js";
+import { RuleExpression } from "@/rules/RuleExpression.js";
+import { RuleFailureExpression } from "@/rules/RuleFailureExpression.js";
+import { RuleFailureLiteral } from "@/rules/RuleFailureLiteral.js";
+import { RuleLiteral } from "@/rules/RuleLiteral.js";
 
 export class CommandsMatcher {
   private readonly rules: Rule[] = [];

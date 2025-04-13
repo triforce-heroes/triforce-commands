@@ -1,6 +1,5 @@
-/* eslint-disable no-control-regex */
-import { CommandsMatcher } from "../CommandsMatcher.js";
-import { Driver } from "../Driver.js";
+import { CommandsMatcher } from "@/CommandsMatcher.js";
+import { Driver } from "@/Driver.js";
 
 const matcher = new CommandsMatcher();
 
@@ -26,6 +25,6 @@ matcher.addLiteral("\\x_button_32");
 matcher.addExpression(/\[[^\]]+\]/);
 matcher.addExpression(/<[^>]+>/);
 matcher.addExpression(/\$\d/);
-matcher.addExpression(/\\[a-f0-9]{8}/);
+matcher.addExpression(/\\[0-9a-f]{8}/);
 
 export const UDK = new Driver("UDK", (input) => matcher.match(input));

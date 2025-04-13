@@ -1,3 +1,3 @@
-import { EntryCommand } from "./EntryCommand.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
 
 export class EntryCommandUnknown extends EntryCommand {}

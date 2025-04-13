@@ -3,4 +3,6 @@ import { Driver } from "@/Driver.js";
 
 const matcher = new CommandsMatcher();
 
-export const RAW = new Driver("RAW", (input) => matcher.match(input));
+matcher.addExpression(/\{\d+\}/);
+
+export const LBRS = new Driver("LBRS", (input) => matcher.match(input));

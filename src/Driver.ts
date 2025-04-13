@@ -1,6 +1,6 @@
-import { Entries } from "./entries/Entries.js";
-import { EntryCommand } from "./entries/EntryCommand.js";
-import { EntryCommandDefined } from "./entries/EntryCommandDefined.js";
+import { Entries } from "@/entries/Entries.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
+import { EntryCommandDefined } from "@/entries/EntryCommandDefined.js";
 
 export class Driver {
   public constructor(
@@ -9,7 +9,6 @@ export class Driver {
     public readonly definer?: (input: string) => EntryCommandDefined,
   ) {}
 
-  // eslint-disable-next-line class-methods-use-this
   public define(entry: EntryCommand): EntryCommandDefined {
     return (
       this.definer?.(entry.command) ?? new EntryCommandDefined(entry.command)

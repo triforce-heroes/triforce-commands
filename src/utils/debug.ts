@@ -1,6 +1,6 @@
-import { Driver } from "../Driver.js";
-import { EntryCommand } from "../entries/EntryCommand.js";
-import { EntryCommandUnknown } from "../entries/EntryCommandUnknown.js";
+import type { Driver } from "@/Driver.js";
+import { EntryCommand } from "@/entries/EntryCommand.js";
+import { EntryCommandUnknown } from "@/entries/EntryCommandUnknown.js";
 
 interface Sample {
   raw: string;
@@ -53,9 +53,9 @@ export function debugEntries(
         knownCommand,
         knownSamples
           .sort(
-            (a, b) =>
-              a.commandsCounter - b.commandsCounter ||
-              a.raw.length - b.raw.length,
+            (sampleA, sampleB) =>
+              sampleA.commandsCounter - sampleB.commandsCounter ||
+              sampleA.raw.length - sampleB.raw.length,
           )
           .map(({ raw }) => raw)
           .slice(0, 10),
@@ -66,6 +66,8 @@ export function debugEntries(
   return {
     unknowns: [...unknowns].sort(),
     knowns: [...knowns.keys()].sort(),
-    samples: [...samples.entries()].sort(([a], [b]) => a.localeCompare(b)),
+    samples: [...samples.entries()].sort(([entryA], [entryB]) =>
+      entryA.localeCompare(entryB),
+    ),
   };
 }

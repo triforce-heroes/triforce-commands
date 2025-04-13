@@ -1,11 +1,10 @@
-import { Driver } from "../Driver.js";
-
-import { HWAC } from "./HWAC.js";
-import { PKLA } from "./PKLA.js";
-import { RAW } from "./RAW.js";
-import { TPHD } from "./TPHD.js";
-import { UDK } from "./UDK.js";
-import { ZTFH } from "./ZTFH.js";
+import type { Driver } from "@/Driver.js";
+import { HWAC } from "@/drivers/HWAC.js";
+import { PKLA } from "@/drivers/PKLA.js";
+import { RAW } from "@/drivers/RAW.js";
+import { TPHD } from "@/drivers/TPHD.js";
+import { UDK } from "@/drivers/UDK.js";
+import { ZTFH } from "@/drivers/ZTFH.js";
 
 const enginesDrivers = Object.fromEntries(
   Object.entries({ HWAC, PKLA, RAW, TPHD, UDK, ZTFH }).map(([key, value]) => [

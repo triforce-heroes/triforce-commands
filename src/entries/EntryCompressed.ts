@@ -1,4 +1,4 @@
-import { Entry } from "./Entry.js";
+import { Entry } from "@/entries/Entry.js";
 
 export class EntryCompressed extends Entry {
   public constructor(

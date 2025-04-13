@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { HWAC } from "../../src/drivers/HWAC.js";
-import { Entries, EntryCommand, EntryText } from "../../src/index.js";
+import { HWAC } from "@/drivers/HWAC.js";
+import { Entries, EntryCommand, EntryText } from "@/index.js";
 
 describe("driver HWAC", () => {
   it("test", () => {
