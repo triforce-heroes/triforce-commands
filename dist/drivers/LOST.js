@@ -1,0 +1,1 @@
+import{CommandsMatcher as r}from"../CommandsMatcher.js";import{Driver as a}from"../Driver.js";let d=new r;d.addLiteral("帱"),d.addLiteral("帲"),d.addLiteral("幣"),d.addExpression(/幮./),d.addLiteral("");export const LOST=new a("LOST",r=>d.match(r));
